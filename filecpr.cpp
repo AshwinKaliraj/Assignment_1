@@ -75,7 +75,7 @@ int main() {
         outB.close();
     }
     // STEP 4: Check writability of Temporary_Record
-    
+
     ofstream testWrite(fileB, ios::app);
     if (!testWrite.is_open()) {
         cout << "Error: Cannot write to Temporary_Record. Check permissions or disk space.\n";
@@ -88,4 +88,10 @@ int main() {
     if (!fileHasData(fileA)) {
         cout << "Error: 'Original_Record' is empty. Cannot copy.\n";
         return 1;
+    }
+    // STEP 6: Clear Temporary_Record if it has old data
+    if (fileHasData(fileB)) {
+        ofstream clearB(fileB, ios::trunc);
+        clearB.close();
+        cout << "Temporary_Record cleared.\n";
     }
