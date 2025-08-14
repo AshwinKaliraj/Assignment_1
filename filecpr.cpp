@@ -106,3 +106,8 @@ int main() {
     inFile.close();
     outFile.close();
 
+// STEP 8: Verify file size match
+
+    if (getFileSize(fileA) != getFileSize(fileB)) {
+        cout << "Warning: File size mismatch. Copy may be incomplete.\n";
+    }
