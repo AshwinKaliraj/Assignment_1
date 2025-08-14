@@ -111,3 +111,18 @@ int main() {
     if (getFileSize(fileA) != getFileSize(fileB)) {
         cout << "Warning: File size mismatch. Copy may be incomplete.\n";
     }
+
+  // STEP 9: Show preview of copied data
+  
+    cout << "\nPreview of Temporary_Record:\n";
+    ifstream preview(fileB);
+    int count = 0;
+    while (getline(preview, line) && count < 5) {
+        cout << line << "\n";
+        count++;
+    }
+    preview.close();
+
+    cout << "\nData copied from Original_Record to Temporary_Record successfully.\n";
+    return 0;
+}
