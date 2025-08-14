@@ -15,3 +15,8 @@ bool fileHasData(const string &filename) {
     ifstream file(filename);
     return file.peek() != ifstream::traits_type::eof();
 }
+// Get file size in bytes
+long getFileSize(const string &filename) {
+    ifstream file(filename, ios::binary | ios::ate);
+    return file.tellg();
+}
