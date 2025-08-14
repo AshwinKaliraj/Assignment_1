@@ -69,8 +69,15 @@ int main() {
     testRead.close();
 
    // STEP 3: Check if Temporary_Record exists
-   
+
     if (!fileExists(fileB)) {
         ofstream outB(fileB); 
         outB.close();
     }
+    // STEP 4: Check writability of Temporary_Record
+    ofstream testWrite(fileB, ios::app);
+    if (!testWrite.is_open()) {
+        cout << "Error: Cannot write to Temporary_Record. Check permissions or disk space.\n";
+        return 1;
+    }
+    testWrite.close();
