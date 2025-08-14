@@ -20,3 +20,6 @@ long getFileSize(const string &filename) {
     ifstream file(filename, ios::binary | ios::ate);
     return file.tellg();
 }
+int main() {
+    string fileA = "Original_Record.csv";
+    string fileB = "Temporary_Record.csv";
