@@ -60,9 +60,17 @@ int main() {
         cout << "Original_Record created successfully.\n";
     }
     // STEP 2: Check readability of Original_Record
-    
+
     ifstream testRead(fileA);
     if (!testRead.is_open()) {
         cout << "Error: Cannot read Original_Record. Check permissions!.\n";
         return 1;
+    }
+    testRead.close();
+
+   // STEP 3: Check if Temporary_Record exists
+   
+    if (!fileExists(fileB)) {
+        ofstream outB(fileB); 
+        outB.close();
     }
