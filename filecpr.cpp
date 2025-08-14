@@ -95,3 +95,14 @@ int main() {
         clearB.close();
         cout << "Temporary_Record cleared.\n";
     }
+    // STEP 7: Copy data from Original_Record to Temporary_Record
+
+    ifstream inFile(fileA);
+    ofstream outFile(fileB);
+    string line;
+    while (getline(inFile, line)) {
+        outFile << line << "\n";
+    }
+    inFile.close();
+    outFile.close();
+
